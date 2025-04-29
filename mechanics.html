@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS13/14 ру вики</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat, #0a0f1a;
+            color: #d0d0d0;
+            transition: background 1s, color 1s;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 260px;
+            background: #1e2a38;
+            padding: 20px;
+            box-shadow: 2px 0 10px #000;
+            transition: background 1s, color 1s;
+        }
+        .sidebar h2 {
+            font-size: 1.8em;
+            color: #66ccff;
+            text-transform: uppercase;
+            margin: 0 0 20px;
+            transition: color 1s;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #99ddff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .sidebar ul li a:hover {
+            color: #66ccff;
+            padding-left: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px;
+            background: rgba(20, 30, 45, 0.9);
+            border-radius: 8px;
+            margin-left: 20px;
+            transition: background 1s, color 1s;
+        }
+        .content h1 {
+            font-size: 2.2em;
+            color: #66ccff;
+            text-transform: uppercase;
+            border-bottom: 2px solid #66ccff;
+            padding-bottom: 10px;
+            transition: color 1s, border-color 1s;
+        }
+        .content h2 {
+            font-size: 1.6em;
+            color: #99ddff;
+            border-bottom: 1px dashed #66ccff;
+            padding-bottom: 8px;
+            margin-top: 20px;
+            transition: color 1s, border-color 1s;
+        }
+        .content p {
+            font-size: 1.1em;
+            transition: color 1s;
+        }
+        .skill {
+            color: #33ff33;
+            font-weight: bold;
+            transition: color 1s;
+        }
+        .sind {
+            color: #ff0000;
+            font-weight: bold;
+            transition: color 1s;
+        }
+        button {
+            padding: 12px 25px;
+            background: #2c4a6b;
+            color: #fff;
+            border: 1px solid #66ccff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+        button:hover {
+            background: #1a2b3c;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="roles.html">Роли</a></li>
+                <li><a href="mechanics.html">Механики</a></li>
+                <li><a href="guides.html">Руководства</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Механики</h1>
+            <p>
+                Здесь находится информация о механиках наших серверов. Наша сборка использует механики Backmen, Imperial Space, Corvax, Goob Station и 
+                свои уникальные механики. Всё, что тут не написано, вы можете найти на вики вышеуказанных проектов.
+            </p>
+            <h2>"Кукла"</h2>
+            <p>
+                Кукла — механика, что пришла к нам из Space Station 13, а Backmen воссоздали её в 14 станции.
+            </p>
+            <button onclick="toggleSection('secret-section-1')" aria-expanded="false" aria-controls="secret-section-1">Показать/Скрыть описание</button>
+            <div id="secret-section-1" class="hidden">
+                <p>
+                    Кукла находится в правом нижнем углу. С помощью куклы можно выбирать конечность, с которой хотите взаимодействовать. Эта панель дала 
+                    возможность схватить клоуна за ногу и выкинуть в открытый космос почти не прилагая усилий, только задумайтесь!
+                </p>
+            </div>
+            <h2>Распространение котиков</h2>
+            <button onclick="toggleSection('secret-section-2')" aria-expanded="false" aria-controls="secret-section-2">Показать/Скрыть описание</button>
+            <div id="secret-section-2" class="hidden">
+                <p>
+                    МЕФ! МЕФ! МЕФ! МЕФ! МЕФ! МЕФ! МЕФ! *умер* <br> Ладно, хватит шуток. У НАС ЕСТЬ НАИЛУЧШАЯ МЕХАНИКА СОЗДАНИЯ КОТИКОВ В КОЛБЕ! 
+                    ТОЛЬКО У НАС ГЕНЕТИЧЕСКИ ЧИСТЫЕ КОТЯТА! ДАРИТЕ ДОБРО! <span class="sind">U2</span>
+                </p>
+            </div>
+            <h2>Пустой раздел</h2>
+            <button onclick="toggleSection('secret-section-3')" aria-expanded="false" aria-controls="secret-section-3">Показать/Скрыть описание</button>
+            <div id="secret-section-3" class="hidden">
+                <p>
+                    Этот раздел пока пуст. Добавьте описание механики!
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const button = document.querySelector(`button[aria-controls="${sectionId}"]`);
+            if (section && button) {
+                section.classList.toggle('hidden');
+                const isExpanded = !section.classList.contains('hidden');
+                button.setAttribute('aria-expanded', isExpanded);
+            }
+        }
+    </script>
+</body>
+</html>

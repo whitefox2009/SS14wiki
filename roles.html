@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS13/14 ру вики</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat, #0a0f1a;
+            color: #d0d0d0;
+            transition: background 1s, color 1s;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 260px;
+            background: #1e2a38;
+            padding: 20px;
+            box-shadow: 2px 0 10px #000;
+            transition: background 1s, color 1s;
+        }
+        .sidebar h2 {
+            font-size: 1.8em;
+            color: #66ccff;
+            text-transform: uppercase;
+            margin: 0 0 20px;
+            transition: color 1s;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #99ddff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .sidebar ul li a:hover {
+            color: #66ccff;
+            padding-left: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px;
+            background: rgba(20, 30, 45, 0.9);
+            border-radius: 8px;
+            margin-left: 20px;
+            transition: background 1s, color 1s;
+        }
+        .content h1 {
+            font-size: 2.2em;
+            color: #66ccff;
+            text-transform: uppercase;
+            border-bottom: 2px solid #66ccff;
+            padding-bottom: 10px;
+            transition: color 1s, border-color 1s;
+        }
+        .content h2 {
+            font-size: 1.6em;
+            color: #99ddff;
+            border-bottom: 1px dashed #66ccff;
+            padding-bottom: 8px;
+            margin-top: 20px;
+            transition: color 1s, border-color 1s;
+        }
+        .content p {
+            font-size: 1.1em;
+            transition: color 1s;
+        }
+        .skill {
+            color: #33ff33;
+            font-weight: bold;
+            transition: color 1s;
+        }
+        .clown {
+            color: #ffff00;
+            font-weight: bold;
+            transition: color 1s;
+        }
+        .sind {
+            color: #ff0000;
+            font-weight: bold;
+            transition: color 1s;
+        }
+        button {
+            padding: 12px 25px;
+            background: #2c4a6b;
+            color: #fff;
+            border: 1px solid #66ccff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #1a2b3c;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Стили для таблицы космических законов */
+        .law-table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        .law-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(20, 30, 45, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 0.95em;
+        }
+        .law-table th, .law-table td {
+            border: 1px solid #66ccff;
+            padding: 8px;
+            text-align: center;
+            min-width: 120px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .law-table th {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .law-table th.code {
+            background: #2c4a6b;
+            color: #fff;
+            min-width: 60px;
+        }
+        .law-table td {
+            color: #d0d0d0;
+            height: 60px;
+        }
+        /* Цветовые категории для заголовков */
+        .law-1xx th:not(.code) {
+            background: #1a3c1a;
+            color: #33ff33;
+        }
+        .law-2xx th:not(.code) {
+            background: #3c3c00;
+            color: #ffff00;
+        }
+        .law-3xx th:not(.code) {
+            background: #3c2f00;
+            color: #ff9900;
+        }
+        .law-4xx th:not(.code) {
+            background: #3c0000;
+            color: #ff0000;
+        }
+        .law-5xx th:not(.code) {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+        /* Цветовые категории для ячеек */
+        .law-table td:nth-child(2) {
+            background: rgba(51, 255, 51, 0.1);
+            color: #33ff33;
+        }
+        .law-table td:nth-child(3) {
+            background: rgba(255, 255, 0, 0.1);
+            color: #ffff00;
+        }
+        .law-table td:nth-child(4) {
+            background: rgba(255, 153, 0, 0.1);
+            color: #ff9900;
+        }
+        .law-table td:nth-child(5) {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff0000;
+        }
+        .law-table td:nth-child(6) {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+        .law-table td:first-child {
+            background: #2c4a6b;
+            color: #fff;
+            font-weight: bold;
+        }
+        .law-table tr:hover td {
+            background: rgba(102, 204, 255, 0.2);
+        }
+        .law-table td:empty {
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Навигация</h2>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="roles.html">Роли</a></li>
+                <li><a href="mechanics.html">Механики</a></li>
+                <li><a href="guides.html">Руководства</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Добро пожаловать на вики станции!</h1>
+            <p>
+                Это вики по Space Station 13. Здесь вы найдёте информацию о ролях, механиках и прочем.
+                Используйте боковую панель для навигации.
+            </p>
+            <h2>Клоун</h2>
+            <p>
+                Сложность: <span class="skill">ХОНК</span>.
+            </p>
+            <button onclick="toggleSection('secret-section1')" aria-expanded="false" aria-controls="secret-section1">Показать/Скрыть описание</button>
+            <div id="secret-section1" class="hidden">
+                <p>
+                    Клоун — лучший выбор для <span class="clown">новичка!</span> Почему? Да потому что это классно! <br>
+                    Хотели бы вы использовать имя Тайлера Дердена? Хотели бы вы унижать кадетов? Хотели бы вы раскидывать бананы по станции? 
+                    <span class="clown">Чего я спрашиваю, конечно же хотите!</span> <br>
+                    Есть свои плюсы и минусы. Вы неуязвимы к 1XX статьям, но какой-нибудь кадет вероятно захочет отомстить злому клоуну, даже 
+                    если вы ничего не делали. И этот момент настанет, хотите вы или нет... <span class="clown">И ПИРОГ В ЛИЦО, БЕГИ!!!</span> <br>
+                    И помните: <span class="sind">ХОНКОМАТЬ ЗОВЁТ!</span>
+                </p>
+            </div>
+            <h2>Сотрудник СБ</h2>
+            <button onclick="toggleSection('secret-section-2')" aria-expanded="false" aria-controls="secret-section-2">Показать/Скрыть описание</button>
+            <div id="secret-section-2" class="hidden">
+                <p>
+                    <span class="sind">ПОСАДИТЬ КЛОУНА</span>
+                </p>
+                <p>
+                    Что, поверил? Ладно, давайте поговорим о вашей должности. Все сотрудники СБ <span class="sind">ответственны за порядок на 
+                    станции своей головой.</span> Вы обязаны следовать своему СРП и соблюдать КЗ. Вы, конечно, можете проявлять инициативу, 
+                    общаться со своим начальником на равных, но это происходит крайне редко. Да и Агент Внутренних Дел (АВД) может быть не очень доволен. 
+                    Итак, начнём с общего КЗ. Вот таблица космических законов:
+                </p>
+                <button onclick="toggleSection('law-table-section')" aria-expanded="true" aria-controls="law-table-section">Показать/Скрыть описание</button>
+                <div id="law-table-section" class="law-table-container">
+                    <table class="law-table" aria-label="Таблица космических законов">
+                        <thead>
+                            <tr>
+                                <th class="code">Код</th>
+                                <th class="law-1xx">1XX<br>Незначительные</th>
+                                <th class="law-2xx">2XX<br>Средние</th>
+                                <th class="law-3xx">3XX<br>Серьёзные</th>
+                                <th class="law-4xx">4XX<br>Критические</th>
+                                <th class="law-5xx">5XX<br>Экстремальные</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>X01</td>
+                                <td>оскорбление должностных лиц</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Саботаж</td>
+                            </tr>
+                            <tr>
+                                <td>X02</td>
+                                <td>Харассмент</td>
+                                <td>Пьяный дебош</td>
+                                <td>Взлом</td>
+                                <td>Тяжкое нападение</td>
+                                <td>Терроризм</td>
+                            </tr>
+                            <tr>
+                                <td>X03</td>
+                                <td>Неподчинение приказам</td>
+                                <td>Хулиганство</td>
+                                <td>Незаконное владение оружием</td>
+                                <td>Убийство</td>
+                                <td>Предательство</td>
+                            </tr>
+                            <tr>
+                                <td>X04</td>
+                                <td>Мусор в коридорах</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>X05</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>X06</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>X07</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>X08</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>X09</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const button = document.querySelector(`button[aria-controls="${sectionId}"]`);
+            if (section && button) {
+                section.classList.toggle('hidden');
+                const isExpanded = !section.classList.contains('hidden');
+                button.setAttribute('aria-expanded', isExpanded);
+                button.textContent = isExpanded ? 'Показать/Скрыть описание' : 'Показать/Скрыть описание';
+            }
+        }
+    </script>
+</body>
+</html>

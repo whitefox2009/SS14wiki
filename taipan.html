@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТАЙПАН - ПОМОЩЬ СИНДИКАТУ</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #000;
+            animation: fadeInSyndicate 3s forwards;
+        }
+        @keyframes fadeInSyndicate {
+            0% { background: #000; color: #000; }
+            100% { background: #1a0000 url('https://www.transparenttextures.com/patterns/old-tv-stripes.png') repeat; color: #ff3333; }
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 260px;
+            background: #000;
+            padding: 20px;
+            box-shadow: 2px 0 10px #000;
+            animation: fadeInSidebar 3s forwards;
+        }
+        @keyframes fadeInSidebar {
+            0% { background: #000; color: #000; }
+            100% { background: #320000; color: #ff3333; }
+        }
+        .sidebar h2 {
+            font-size: 1.8em;
+            color: #ff3333;
+            text-transform: uppercase;
+            margin: 0 0 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: #ff6666;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        .sidebar ul li a:hover {
+            color: #ff9999;
+            padding-left: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px;
+            background: #000;
+            border-radius: 8px;
+            margin-left: 20px;
+            animation: fadeInContent 3s forwards;
+        }
+        @keyframes fadeInContent {
+            0% { background: #000; color: #000; }
+            100% { background: #320000; color: #ff3333; }
+        }
+        .content h1 {
+            font-size: 2.2em;
+            color: #ff3333;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ff6666;
+            padding-bottom: 10px;
+        }
+        .content h2 {
+            font-size: 1.6em;
+            color: #ff6666;
+            border-bottom: 1px dashed #ff6666;
+            padding-bottom: 8px;
+            margin-top: 20px;
+        }
+        .content p {
+            font-size: 1.1em;
+        }
+        .skill {
+            color: #ff9999;
+            font-weight: bold;
+        }
+        button {
+            padding: 12px 25px;
+            background: #ff3333;
+            color: #fff;
+            border: 1px solid #ff6666;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background: #cc0000;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Добро пожаловать на Тайпан!</h1>
+            <p>
+                Вы находитесь на зашифрованной линии, доступ к которой можно получить через частоту 121,3. Здесь информация для агентов синдиката.
+                И помните: Горлакс заботится о вас. СМЕРТЬ НАНОТРЕЙЗЕН!
+            </p>
+            <h2>Содержимое:</h2>
+            <p>
+                Агент, ты активировал секретный код. Уровень доступа: <span class="skill">Ядерный Оперативник</span>.
+            </p>
+            <button onclick="toggleSection()">Скрыть/Показать</button>
+            <div id="secret-section" class="hidden">
+                <h3>
+                    Поздравляю! Вы-лучшие из лучших. Именно вас выбрали для уничтожения объекта NT! 
+                    Как ядерный оперативник, вы наверняка уже знаете что происходит. Но на всякий случай мы оставили эту страницу! 
+                    Тут вы можете найти полезную информацию, 
+                    которая может вам помочь.
+                </h3>
+            <h2>
+                Основные советы:
+            </h2>
+            <ol>
+                <li>Слушайтесь командира. Он может быть мудаком, но всё-таки он знает побольше вас и имеет опыт.</li>
+                <li>Откройте отсек экстренной помощи, ведь медик не сможет колоть метамфетамин, если не имеет доступа к вене.</li>
+                <li>Если это ваше первое задание, то попросите командира сделать закуп за вас. И пожалуйста, предупредите его.</li>
+                <li>Старайтесь не подставляться под выстрелы, ваша сохранность напрямую влияет на выполнение цели.</li>
+                <li>Запишите где-нибудь код от ядерки, можно даже на своей личной карте. Команда скажет спасибо!</li>
+            </ol>
+            <h2>Так как вы ознакомились с основами и у вас не отобрали планшет, можно и ввести в курс дела! Приступим!</h2>
+            <p>Наверное вы уже заметили стильный красно-чёрный рюкзак? Посмотрите в него, внутри должно быть:</p>
+            <ol>
+                <li>Пистолет</li>
+                <li>Целеуказатель настроенный на диск ядерной авторизации</li>
+                <li>Пара упаковок СИНДИ КЕКСОВ, ВКУСНЕЙШИХ КЕКСИКОВ В ГАЛАКТИКЕ!!!1!</li>
+                <li>Устройство для телепортации экипировки, замаскированное под радио</li>
+                <li>Баллон кислорода(азота, если вы слаймолюд)</li>
+                <li>Фото вашего кота. Обязательно. Здесь и сейчас.</li>
+            </ol>
+            <p>Чего-то не хватает? Сообщите командиру и поплачьте в противогаз. Ладно, шутки в сторону! На столе возле медицинского блока шаттла 
+                или возле инженерного отсека должна быть распечатка, а на ней код. Запишите или запомните его, возьмите свою ядерку и тащите куда-то поглубже в станцию. 
+                Вы должны отобрать у станции диск ядерной авторизации, который скорее всего находится у капитана или ГСБ, так что придётся постараться. 
+                После удачного захвата диска прикрепите ядерку, вставьте диск и введите код. Охраняйте его любой ценой! 
+                Если вы уверены в сохранности боеголвки, можете попросить капитана начать эвакуацию. Обычно это происходит когда на таймере 60-120 
+                секунд. После попадания на свой шаттл улетайте как можно быстрее, иначе вас зацепит.
+            </p>
+            <h1>Теперь вы готовы к штурму! Удачи!</h1>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection() {
+            document.getElementById('secret-section').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
